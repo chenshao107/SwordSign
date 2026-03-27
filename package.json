@@ -1,0 +1,97 @@
+{
+  "name": "envlens",
+  "displayName": "EnvLens",
+  "description": "通过文字水印快速区分 VSCode 窗口",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": ["Other"],
+  "keywords": ["watermark", "background", "window", "标识", "水印"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "envlens.refresh",
+        "title": "刷新水印",
+        "category": "EnvLens"
+      },
+      {
+        "command": "envlens.toggle",
+        "title": "切换水印显示",
+        "category": "EnvLens"
+      }
+    ],
+    "configuration": {
+      "title": "EnvLens",
+      "properties": {
+        "envlens.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否启用水印"
+        },
+        "envlens.text": {
+          "type": "string",
+          "default": "",
+          "description": "自定义水印文字，为空则从名剑谱中随机选取"
+        },
+        "envlens.opacity": {
+          "type": "number",
+          "default": 0.08,
+          "minimum": 0,
+          "maximum": 1,
+          "description": "水印透明度 (0-1)"
+        },
+        "envlens.fontSize": {
+          "type": "number",
+          "default": 50,
+          "minimum": 10,
+          "maximum": 100,
+          "description": "文字大小"
+        },
+        "envlens.angle": {
+          "type": "number",
+          "default": -30,
+          "minimum": -90,
+          "maximum": 90,
+          "description": "文字倾斜角度"
+        },
+        "envlens.fontFamily": {
+          "type": "string",
+          "default": "Microsoft YaHei, SimHei, sans-serif",
+          "description": "字体族"
+        },
+        "envlens.spacingX": {
+          "type": "number",
+          "default": 200,
+          "minimum": 50,
+          "maximum": 500,
+          "description": "水印水平间距"
+        },
+        "envlens.spacingY": {
+          "type": "number",
+          "default": 150,
+          "minimum": 50,
+          "maximum": 500,
+          "description": "水印垂直间距"
+        },
+        "envlens.color": {
+          "type": "string",
+          "default": "#808080",
+          "description": "水印文字颜色"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "^18.x",
+    "typescript": "^5.x"
+  }
+}
