@@ -2,7 +2,7 @@
   "name": "swordsign",
   "displayName": "SwordSign",
   "description": "通过文字水印快速区分 VSCode 窗口",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "publisher": "chenshao",
   "icon": "icon.png",
   "engines": {
@@ -27,12 +27,32 @@
     "commands": [
       {
         "command": "swordsign.refresh",
-        "title": "刷新水印",
+        "title": "刷新标识（随机切换名剑）",
         "category": "SwordSign"
       },
       {
         "command": "swordsign.toggle",
-        "title": "切换水印显示",
+        "title": "切换总开关",
+        "category": "SwordSign"
+      },
+      {
+        "command": "swordsign.toggleWatermark",
+        "title": "切换背景水印",
+        "category": "SwordSign"
+      },
+      {
+        "command": "swordsign.toggleStatusBar",
+        "title": "切换状态栏显示",
+        "category": "SwordSign"
+      },
+      {
+        "command": "swordsign.toggleWindowTitle",
+        "title": "切换窗口标题显示",
+        "category": "SwordSign"
+      },
+      {
+        "command": "swordsign.setText",
+        "title": "设置自定义标识文字",
         "category": "SwordSign"
       }
     ],
@@ -42,12 +62,37 @@
         "swordsign.enabled": {
           "type": "boolean",
           "default": true,
-          "description": "是否启用水印"
+          "description": "总开关：是否启用 SwordSign"
+        },
+        "swordsign.showWatermark": {
+          "type": "boolean",
+          "default": false,
+          "description": "是否显示背景水印（默认关闭，建议用状态栏和窗口标题）"
+        },
+        "swordsign.showStatusBar": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否在状态栏显示标识（仅工作区有效）"
+        },
+        "swordsign.statusBarColor": {
+          "type": "string",
+          "default": "",
+          "description": "状态栏文字颜色，如 #FF0000、red（仅工作区有效）"
+        },
+        "swordsign.statusBarBackground": {
+          "type": "string",
+          "default": "",
+          "description": "状态栏背景颜色，如 #FF0000、red（仅工作区有效）"
+        },
+        "swordsign.showWindowTitle": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否在窗口标题显示标识"
         },
         "swordsign.text": {
           "type": "string",
           "default": "",
-          "description": "自定义水印文字，为空则从名剑谱中随机选取"
+          "description": "自定义标识文字，为空则从名剑谱中随机选取"
         },
         "swordsign.opacity": {
           "type": "number",
