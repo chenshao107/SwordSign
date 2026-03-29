@@ -2,7 +2,7 @@
   "name": "swordsign",
   "displayName": "SwordSign",
   "description": "通过文字水印快速区分 VSCode 窗口",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "chenshao",
   "icon": "icon.png",
   "engines": {
@@ -104,7 +104,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/chenshao107/EnvLens.git"
+    "url": "https://github.com/chenshao107/SwordSign.git"
   },
   "devDependencies": {
     "@types/node": "^18.x",
