@@ -1,82 +1,95 @@
 {
-  "name": "envlens",
-  "displayName": "EnvLens",
+  "name": "swordsign",
+  "displayName": "SwordSign",
   "description": "通过文字水印快速区分 VSCode 窗口",
   "version": "0.0.1",
+  "publisher": "chenshao",
+  "icon": "icon.png",
   "engines": {
     "vscode": "^1.74.0"
   },
-  "categories": ["Other"],
-  "keywords": ["watermark", "background", "window", "标识", "水印"],
-  "activationEvents": ["onStartupFinished"],
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "watermark",
+    "background",
+    "window",
+    "标识",
+    "水印",
+    "sword"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "envlens.refresh",
+        "command": "swordsign.refresh",
         "title": "刷新水印",
-        "category": "EnvLens"
+        "category": "SwordSign"
       },
       {
-        "command": "envlens.toggle",
+        "command": "swordsign.toggle",
         "title": "切换水印显示",
-        "category": "EnvLens"
+        "category": "SwordSign"
       }
     ],
     "configuration": {
-      "title": "EnvLens",
+      "title": "SwordSign",
       "properties": {
-        "envlens.enabled": {
+        "swordsign.enabled": {
           "type": "boolean",
           "default": true,
           "description": "是否启用水印"
         },
-        "envlens.text": {
+        "swordsign.text": {
           "type": "string",
           "default": "",
           "description": "自定义水印文字，为空则从名剑谱中随机选取"
         },
-        "envlens.opacity": {
+        "swordsign.opacity": {
           "type": "number",
           "default": 0.08,
           "minimum": 0,
           "maximum": 1,
           "description": "水印透明度 (0-1)"
         },
-        "envlens.fontSize": {
+        "swordsign.fontSize": {
           "type": "number",
           "default": 50,
           "minimum": 10,
           "maximum": 100,
           "description": "文字大小"
         },
-        "envlens.angle": {
+        "swordsign.angle": {
           "type": "number",
           "default": -30,
           "minimum": -90,
           "maximum": 90,
           "description": "文字倾斜角度"
         },
-        "envlens.fontFamily": {
+        "swordsign.fontFamily": {
           "type": "string",
           "default": "Microsoft YaHei, SimHei, sans-serif",
           "description": "字体族"
         },
-        "envlens.spacingX": {
+        "swordsign.spacingX": {
           "type": "number",
           "default": 200,
           "minimum": 50,
           "maximum": 500,
           "description": "水印水平间距"
         },
-        "envlens.spacingY": {
+        "swordsign.spacingY": {
           "type": "number",
           "default": 150,
           "minimum": 50,
           "maximum": 500,
           "description": "水印垂直间距"
         },
-        "envlens.color": {
+        "swordsign.color": {
           "type": "string",
           "default": "#808080",
           "description": "水印文字颜色"
@@ -89,9 +102,13 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chenshao107/EnvLens.git"
+  },
   "devDependencies": {
-    "@types/vscode": "^1.74.0",
     "@types/node": "^18.x",
-    "typescript": "^5.x"
+    "@types/vscode": "^1.74.0",
+    "typescript": "^5.9.3"
   }
 }

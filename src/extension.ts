@@ -21,7 +21,7 @@ export function activate(context: vscode.ExtensionContext) {
     // 监听配置变化
     context.subscriptions.push(
         vscode.workspace.onDidChangeConfiguration(e => {
-            if (e.affectsConfiguration('envlens')) {
+            if (e.affectsConfiguration('swordsign')) {
                 updateWatermark();
             }
         })
@@ -38,22 +38,22 @@ export function activate(context: vscode.ExtensionContext) {
 
     // 注册刷新命令
     context.subscriptions.push(
-        vscode.commands.registerCommand('envlens.refresh', () => {
+        vscode.commands.registerCommand('swordsign.refresh', () => {
             updateWatermark();
-            vscode.window.showInformationMessage('EnvLens 水印已刷新');
+            vscode.window.showInformationMessage('SwordSign 水印已刷新');
         })
     );
 
     // 注册切换显示命令
     context.subscriptions.push(
-        vscode.commands.registerCommand('envlens.toggle', () => {
+        vscode.commands.registerCommand('swordsign.toggle', () => {
             isEnabled = !isEnabled;
             if (isEnabled) {
                 updateWatermark();
-                vscode.window.showInformationMessage('EnvLens 水印已开启');
+                vscode.window.showInformationMessage('SwordSign 水印已开启');
             } else {
                 clearWatermark();
-                vscode.window.showInformationMessage('EnvLens 水印已关闭');
+                vscode.window.showInformationMessage('SwordSign 水印已关闭');
             }
         })
     );
@@ -64,7 +64,7 @@ export function deactivate() {
 }
 
 function updateWatermark() {
-    const config = vscode.workspace.getConfiguration('envlens');
+    const config = vscode.workspace.getConfiguration('swordsign');
     
     // 检查是否启用
     isEnabled = config.get<boolean>('enabled') ?? true;
